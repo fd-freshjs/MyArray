@@ -1,18 +1,37 @@
-// constructor func
-function MyArray() {
-  this.length = 1;
-}
-
 // prototype obj
 const arrayPrototype = {
-  // Class.prototype.includes
-  includes: function () {
-    debugger
-    return this.length
-  },
-  indexOf: function () {
 
+
+  // Class.prototype.includes
+  includes: function (arg) {
+    for(let i = 0; i < this.length; i++) {
+      debugger
+      if (this.array[i] === arg) {
+        return true;
+      }
+    }
+    return false;
+  },
+
+
+  indexOf: function () {
+    for(let i = 0; i < this.length; i++) {
+      debugger
+      if (this.array[i] === arg) {
+        return i;
+      }
+    }
+    return -1;
   }
+}
+
+
+
+
+// constructor func
+function MyArray() {
+  this.array = {}
+  this.length = 0;
 }
 
 // bind prototype obj (Class.prototype)
@@ -35,12 +54,9 @@ MyArray.isMyArray = (arg) => {
 // create instance (new)
 const myarray = new MyArray()
 
-// myarray.includes()
-// myarray.__proto__.includes()
-// MyArray.prototype.includes()
+myarray.array[this.length] = 4
+myarray.length = 1
 
-const myIncludes = myarray.includes
+const result = myarray.includes(5)
 
-const binded =  myIncludes.bind(myarray)
-
-binded()
+console.log(result);
