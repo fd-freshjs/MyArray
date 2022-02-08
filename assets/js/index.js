@@ -1,12 +1,13 @@
 // constructor func
 function MyArray() {
-  this.length = 0;
+  this.length = 1;
 }
 
 // prototype obj
 const arrayPrototype = {
   // Class.prototype.includes
   includes: function () {
+    debugger
     return this.length
   },
   indexOf: function () {
@@ -33,3 +34,13 @@ MyArray.isMyArray = (arg) => {
 
 // create instance (new)
 const myarray = new MyArray()
+
+// myarray.includes()
+// myarray.__proto__.includes()
+// MyArray.prototype.includes()
+
+const myIncludes = myarray.includes
+
+const binded =  myIncludes.bind(myarray)
+
+binded()
