@@ -1,11 +1,24 @@
+try {
+  throw new RangeError('random error')
+} catch (err) {
+
+  if(err instanceof TypeError) {
+    console.error(err)
+  }
+
+  if(err instanceof RangeError) {
+    console.error(err)
+    alert('попробуйте еше раз')
+  }
+} finally {
+  console.log('final');
+}
+
 // prototype obj
 const arrayPrototype = {
-
-
   // Class.prototype.includes
   includes: function (arg) {
     for(let i = 0; i < this.length; i++) {
-      debugger
       if (this.array[i] === arg) {
         return true;
       }
@@ -16,7 +29,6 @@ const arrayPrototype = {
 
   indexOf: function () {
     for(let i = 0; i < this.length; i++) {
-      debugger
       if (this.array[i] === arg) {
         return i;
       }
@@ -54,9 +66,9 @@ MyArray.isMyArray = (arg) => {
 // create instance (new)
 const myarray = new MyArray()
 
-myarray.array[this.length] = 4
+myarray.array[0] = 4
 myarray.length = 1
 
-const result = myarray.includes(5)
+const result = myarray.includes(4)
 
 console.log(result);
