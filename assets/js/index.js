@@ -44,6 +44,12 @@ const arrayPrototype = {
 function MyArray() {
   this.array = {}
   this.length = 0;
+
+  for (let i = 0; i < arguments.length; i++) {
+    const elem = arguments[i];
+    this.array[i] = elem;
+    this.length++;
+  }
 }
 
 // bind prototype obj (Class.prototype)
