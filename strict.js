@@ -16,7 +16,17 @@ console.log(mytest)
 const obj = {
   key: function () {
     console.log(this);
-  }
+  },
+  key2: function () {
+    const func = () => {
+      console.log(this)
+    }
+    func()
+  },
+  key3: () => {
+      console.log(this)
+    }
 }
 
 obj.key()
+obj.key2()
