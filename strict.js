@@ -24,8 +24,8 @@ const obj = {
     func()
   },
   key3: () => {
-      console.log(this)
-    }
+    console.log(this)
+  }
 }
 
 obj.key()
