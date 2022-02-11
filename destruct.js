@@ -11,4 +11,13 @@ function myArray ([myFirst, second], myparam) {
     console.log(myFirst, second, myparam[0]);
 }
 
-myArray(arr, 'str')
+myArray(arr, 'str');
+
+let a = 1;
+let b = 3;
+
+console.log(a, b);
+
+[a, b] = [b, a];
+
+console.log(a, b);
