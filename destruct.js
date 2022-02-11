@@ -1,39 +1,14 @@
-"use strict";
+const arr = [1, 2]
 
-const user = {
-  age: 32,
-  firstname: 'Ivan',
-};
+//       0         1       2      4
+const [myFirst, second, third, forth] = arr;
 
-// const age = user.age;
-// const name = user.name;
-const { age, firstname: username, my } = user;
-
-console.log(age, username, firstname);
+// console.log(myFirst, second, third, forth);
 
 
-const nestedObj = {
-  field: {
-    search: 123,
-  }
+
+function myArray ([myFirst, second], myparam) {
+    console.log(myFirst, second, myparam[0]);
 }
 
-// const { field } = nestedObj;
-// const { search } = field;
-const { field: { search } } = nestedObj;
-
-console.log(search, field);
-
-
-function testFunc({ phone, address }) {
-  if (typeof phone !== 'string') {
-    throw new Error()
-  }
-}
-
-testFunc({
-  phone: 'asdasd',
-  firstname: 'Ivan',
-  lastname: 'Ivanov',
-  birthdate: new Date(),
-});
+myArray(arr, 'str')
