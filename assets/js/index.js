@@ -81,6 +81,53 @@ const arrayPrototype = {
 
     return newArr;
   },
+  _privateForEach: function (callback) {
+    const newArr = new MyArray();
+
+    for (let index = 0; index < this.length; index++) {
+      const element = this.array[index];
+
+      const newValue = callback(element, index, this);
+      newArr.push(newValue);
+    }
+
+    return newArr;
+  },
+  forEach: function (callback) {
+    this._privateForEach(callback);
+  },
+  map: function (callback) {
+    const result = this._privateForEach(callback);
+    return result;
+  },
+  filter: function (callback) {
+    const verdicts = this._privateForEach(callback);
+
+    const newArr = new MyArray();
+    for (let index = 0; index < verdicts.length; index++) {
+      const element = this.array[index];
+      const verdict = verdicts.array[index];
+
+      if (verdict) {
+        newArr.push(element);
+      }
+    }
+
+    return newArr;
+  },
+  every: function () {
+    const verdicts = this._privateForEach(callback);
+
+    for (let index = 0; index < verdicts.length; index++) {
+      const verdict = verdicts.array[index];
+
+      if (verdict === false) {
+        return false;
+      }
+    }
+
+    return false;
+  }
 };
 
 // constructor func
